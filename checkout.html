@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/588c3131b5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        #main-section {
+            padding: 2% 8%;
+            box-sizing: border-box;
+        }
+
+        #main-heading {
+            font-size: 36px;
+            font-weight: 500;
+            margin: 0;
+            margin-bottom: 48px;
+        }
+
+        #content-wrapper {
+            display: flex;
+            justify-content: start;
+        }
+
+        #content-wrapper>div:first-of-type {
+            width: 50%;
+        }
+
+        #content-wrapper>div:last-of-type {
+            width: 50%;
+            height: fit-content;
+            margin-top: 48px;
+            margin-left: 3%;
+
+            box-sizing: border-box;
+            box-shadow: 0 2px 5px #ccc;
+            border-radius: 5px;
+            padding: 16px;
+        }
+
+        .checkout-card {
+            display: flex;
+            box-sizing: border-box;
+            box-shadow: 0 2px 5px #ccc;
+            border-radius: 5px;
+            background-color: white;
+            max-width: 600px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .checkout-product-img {
+            width: 80px;
+            min-width: 80px;
+            border-radius: 5px;
+            margin-right: 16px;
+        }
+
+        .checkout-card h4 {
+            font-weight: 600;
+            margin: 0;
+            margin-bottom: 4px;
+            font-size: 18px;
+        }
+
+        .checkout-card p {
+            margin: 0;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.8);
+            font-weight: 400;
+            margin: 0;
+            margin-bottom: 16px;
+        }
+
+        #total-amount {
+            color: black;
+            opacity: 0.8;
+            font-size: 24px;
+            font-weight: 800;
+            margin-left: 4px;
+        }
+
+        #btn-place-order {
+            background-color: #009688;
+            font-size: 18px;
+            border: 0;
+            cursor: pointer;
+            outline: none;
+            padding: 18px 36px;
+            border-radius: 6px;
+            margin-top: 36px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        #right-menu {
+            display: inline-flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #cart-wrapper {
+            position: relative;
+            margin-right: 32px;
+        }
+
+        #cart-count {
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: 600;
+            background-color: #009688;
+            color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+
+        #cart-wrapper>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #cart-wrapper i {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .logo {
+            color: #D25380;
+            font-size: 60px;
+            margin: 20px;
+            font-family: 'Dancing Script', cursive;
+
+
+        }
+
+        #search-box {
+            width: 40%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+
+        .navigator {
+            margin: 0%;
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #643843;
+            padding: 40px;
+        }
+
+        #search-box {
+            width: 30%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+        footer {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #643843;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 4% 8%;
+        }
+
+        footer>div {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        .footer-heading {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <a href="" style="text-decoration: none;">
+            <img src="https://png.pngtree.com/png-vector/20210905/ourmid/pngtree-pink-shopping-bag-png-image_3857316.jpg"
+                alt="" width="80px" height="80px">
+            <span class="logo">Misho</span>
+        </a>
+        <a class="navigator" href="./index.html">Back To Page</a>
+        <input id="search-box" type="text" name="search" placeholder="Search for Clothing and Accessories">
+        <div id="right-menu">
+            <div id="cart-wrapper">
+                <p id="cart-count">0</p>
+                <a href="./checkout.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <img src="https://img.freepik.com/premium-vector/cute-shopping-girl-cartoon_274619-870.jpg" alt=""
+                style="width: 50px; height: 50px; border-radius: 50%;">
+
+        </div>
+    </div>
+
+    <section id="main-section">
+        <h1 id="main-heading">Checkout</h1>
+
+        <div id="content-wrapper">
+            <div id="card-list">
+                <h3 class="section-heading">Total Items: <span id="item-count">0</span></h3>
+            </div>
+
+            <div>
+                <h3 class="section-heading">Total Amount</h3>
+                <p>Amount: Rs<span id="total-amount">0</span></p>
+                <button id="btn-place-order">Place Order</button>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <p class="footer-heading">Online Store</p>
+                <a href="/" class="footer-link">Men Clothing</a>
+                <a href="/" class="footer-link">Women Clothing</a>
+                <a href="/" class="footer-link">Men Accessories</a>
+                <a href="/" class="footer-link">Women Accessories</a>
+            </div>
+            <div>
+                <p class="footer-heading">Helpful Links</p>
+                <a href="/" class="footer-link">Home</a>
+                <a href="/" class="footer-link">About</a>
+                <a href="/" class="footer-link">Contact</a>
+            </div>
+            <div>
+                <p class="footer-heading">Partners</p>
+                <a href="/" class="footer-link">Zara</a>
+                <a href="/" class="footer-link">Pantaloons</a>
+                <a href="/" class="footer-link">Levis</a>
+                <a href="/" class="footer-link">UCB</a>
+                <a href="/" class="footer-link">+ Many More</a>
+            </div>
+            <div>
+                <p class="footer-heading">Address</p>
+                <p href="/" class="footer-link">Building 101</p>
+                <p href="/" class="footer-link">Central Avenue</p>
+                <p href="/" class="footer-link">LA - 902722</p>
+                <p href="/" class="footer-link">United States</p>
+            </div>
+        </footer>
+    </section>
+    <script>
+        function createCheckoutProductCard(obj) {
+            // <div class="checkout-card">
+            //     <div>
+            //         <img class="checkout-product-img" src="/assets/default-product.png" />
+            //     </div>
+            //     <div>
+            //         <h4>Product Title</h4>
+            //         <p>x3</p>
+            //         <p>Amount: Rs <span>30000</span></p>
+            //     </div>
+            // </div>
+
+            var card = document.createElement('div');
+            card.classList.add('checkout-card');
+
+            var firstInnerDiv = document.createElement('div');
+            var productImg = document.createElement('img');
+            productImg.classList.add('checkout-product-img');
+            productImg.src = obj.preview;
+            firstInnerDiv.appendChild(productImg);
+
+            var secondInnerDiv = document.createElement('div');
+            var productName = document.createElement('h4');
+            productName.innerHTML = obj.name;
+            var productCount = document.createElement('p');
+            productCount.innerHTML = 'x' + obj.count;
+            var amountLabel = document.createElement('span');
+            amountLabel.innerHTML = 'Amount: Rs ';
+            var amountSpan = document.createElement('span');
+            amountSpan.innerHTML = parseInt(obj.count) * parseInt(obj.price);
+            var productAmount = document.createElement('p');
+            productAmount.appendChild(amountLabel);
+            productAmount.appendChild(amountSpan);
+            secondInnerDiv.appendChild(productName);
+            secondInnerDiv.appendChild(productCount);
+            secondInnerDiv.appendChild(productAmount);
+
+            card.appendChild(firstInnerDiv);
+            card.appendChild(secondInnerDiv);
+
+            return card;
+        }
+
+        var productList = window.localStorage.getItem('product-list');
+        productList = productList === null || productList === '' ? [] : productList;
+        productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+        // console.log(productList);
+        var grandTotal = 0;
+        for (var i = 0; i < productList.length; i++) {
+            $('#card-list').append(createCheckoutProductCard(productList[i]));
+            // console.log('Count => ', productList[i].count);
+            // console.log('Price => ', productList[i].price);
+
+            var totalForCurrentProduct = parseFloat(productList[i].count) * parseFloat(productList[i].price);
+
+            grandTotal = grandTotal + totalForCurrentProduct;
+
+            // console.log('Total For Product '+ i + ' is=> ' + totalForCurrentProduct);
+        }
+
+        $('#item-count').html(productList.length);
+        $('#total-amount').html(grandTotal);
+
+        $('#btn-place-order').click(function () {
+
+            window.location.href = './thank.html';
+        })
+
+        var productList = window.localStorage.getItem('product-list');
+        productList = productList === null || productList === '' ? [] : productList;
+        productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+        var totalCount = 0;
+        for (var i = 0; i < productList.length; i++) {
+            totalCount = totalCount + productList[i].count;
+        }
+
+        $('#cart-count').html(totalCount);
+    </script>
+
+</body>
+
+</html>

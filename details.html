@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/588c3131b5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .product-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 2% 8%;
+            box-sizing: border-box;
+        }
+
+        #product-image {
+            width: 40%;
+            padding-right: 8%;
+            box-sizing: border-box;
+            align-self: flex-start;
+        }
+
+        #product-preview {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #product-details {
+            align-self: flex-start;
+            width: 60%;
+            box-sizing: border-box;
+            z-index: 5;
+        }
+
+        #product-images {
+            display: flex;
+
+        }
+
+        #product-images>img {
+            width: 70px;
+            border-radius: 6px;
+            margin: 0 8px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 8px;
+
+            justify-content: space-between;
+
+        }
+
+        #product-title {
+            font-size: 48px;
+            font-weight: 500;
+            margin: 0;
+            color: #643843;
+        }
+
+        #product-brand {
+            font-weight: 600;
+            color: black;
+            opacity: 0.6;
+            margin: 0;
+            margin-top: 8px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.8);
+            margin-top: 36px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        #btn-add-to-cart {
+            background-color: #009688;
+            font-size: 18px;
+            border: 0;
+            cursor: pointer;
+            outline: none;
+            padding: 18px 36px;
+            border-radius: 6px;
+            margin-top: 36px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            color: white;
+            transition: transform 200ms;
+        }
+
+        #product-images>img:hover {
+
+            box-shadow: 0 0 9px 6px rgb(110, 110, 110);
+        }
+
+        #product-price {
+            color: #D25380;
+        }
+
+        #description {
+            color: rgb(180, 180, 180);
+        }
+
+        #right-menu {
+            display: inline-flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #cart-wrapper {
+            position: relative;
+            margin-right: 32px;
+        }
+
+        #cart-count {
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: 600;
+            background-color: #009688;
+            color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+
+        #cart-wrapper>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #cart-wrapper i {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .logo {
+            color: #D25380;
+            font-size: 60px;
+            margin: 20px;
+            font-family: 'Dancing Script', cursive;
+
+
+        }
+
+        #search-box {
+            width: 40%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+
+        .navigator {
+            margin: 0%;
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #643843;
+            padding: 40px;
+        }
+
+        #search-box {
+            width: 30%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+
+        footer {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #643843;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 4% 8%;
+        }
+
+        footer>div {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        .footer-heading {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <a href="" style="text-decoration: none;">
+            <img src="https://png.pngtree.com/png-vector/20210905/ourmid/pngtree-pink-shopping-bag-png-image_3857316.jpg"
+                alt="" width="80px" height="80px">
+            <span class="logo">Misho</span>
+        </a>
+        <a class="navigator" href="./index.html">Back To Page</a>
+        <input id="search-box" type="text" name="search" placeholder="Search for Clothing and Accessories">
+        <div id="right-menu">
+            <div id="cart-wrapper">
+                <p id="cart-count">0</p>
+                <a href="./checkout.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <img src="https://img.freepik.com/premium-vector/cute-shopping-girl-cartoon_274619-870.jpg" alt=""
+                style="width: 50px; height: 50px; border-radius: 50%;">
+
+        </div>
+
+    </div>
+
+    <section>
+        <div class="product-wrapper">
+            <div id="product-image">
+                <div class="image-wrapper">
+                    <img id="product-preview" src="" />
+                </div>
+            </div>
+            <div id="product-details">
+                <h1 id="product-title">Product Title</h1>
+                <h1 id="product-brand">Product Brand</h1>
+                <h4 class="section-heading">Price: Rs <p id="product-price">XXXX</p>
+                </h4>
+                <h4 class="section-heading">Description</h4>
+                <p id="description">Product Description</p>
+                <h4 class="section-heading">Product Preview</h4>
+                <div id="product-images">
+                    <!-- <img src="../assets/default-product.png" /> -->
+                </div>
+
+                <button id="btn-add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div>
+            <p class="footer-heading">Online Store</p>
+            <a href="/" class="footer-link">Men Clothing</a>
+            <a href="/" class="footer-link">Women Clothing</a>
+            <a href="/" class="footer-link">Men Accessories</a>
+            <a href="/" class="footer-link">Women Accessories</a>
+        </div>
+        <div>
+            <p class="footer-heading">Helpful Links</p>
+            <a href="/" class="footer-link">Home</a>
+            <a href="/" class="footer-link">About</a>
+            <a href="/" class="footer-link">Contact</a>
+        </div>
+        <div>
+            <p class="footer-heading">Partners</p>
+            <a href="/" class="footer-link">Zara</a>
+            <a href="/" class="footer-link">Pantaloons</a>
+            <a href="/" class="footer-link">Levis</a>
+            <a href="/" class="footer-link">UCB</a>
+            <a href="/" class="footer-link">+ Many More</a>
+        </div>
+        <div>
+            <p class="footer-heading">Address</p>
+            <p href="/" class="footer-link">Building 101</p>
+            <p href="/" class="footer-link">Central Avenue</p>
+            <p href="/" class="footer-link">LA - 902722</p>
+            <p href="/" class="footer-link">United States</p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            var productId = window.location.search.split('=')[1];
+            var currentObj = null;
+
+
+            function createProductImages(url, pos) {
+                var image = document.createElement('img');
+                image.src = url
+
+                if (pos === 0) {
+                    image.classList.add("active-image");
+                }
+
+                image.onclick = function () {
+                    $('#product-images img').removeClass("active-image")
+                    image.classList.add("active-image");
+                    $('#product-preview').attr('src', url);
+                }
+
+                return image;
+            }
+
+            $.get('https://5d76bf96515d1a0014085cf9.mockapi.io/product/' + productId, function (data, status) {
+                currentObj = data;
+                console.log(currentObj)
+                $('#product-preview').attr('src', data.preview)
+                $('#product-title').html(data.name);
+                $('#product-brand').html(data.brand);
+                $('#description').html(data.description);
+                $('#product-price').html(data.price);
+                console.log(data.photos);
+
+                for (var i = 0; i < data["photos"].length; i++) {
+                    $('#product-images').append(createProductImages(data.photos[i], i));
+                }
+            })
+
+            $("#btn-add-to-cart").click(function () {
+                $('#btn-add-to-cart').addClass('bigger');
+                setTimeout(function () {
+                    $('#btn-add-to-cart').removeClass('bigger');
+                }, 200)
+
+                var productList = window.localStorage.getItem('product-list');
+                productList = productList === null || productList === '' ? [] : productList;
+                productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+                // productList.push(currentObj);
+                // window.localStorage.setItem('product-list', JSON.stringify(productList));
+                console.log(productList);
+
+                var foundAtPos = -1;
+                for (var i = 0; i < productList.length; i++) {
+                    // console.log(productList[i].id);
+                    if (parseInt(productList[i].id) == parseInt(currentObj.id)) {
+                        foundAtPos = i;
+                    }
+                }
+
+                if (foundAtPos > -1) {
+                    productList[foundAtPos].count = productList[foundAtPos].count + 1;
+                    console.log(productList[foundAtPos].count);
+                    window.localStorage.setItem('product-list', JSON.stringify(productList));
+                } else {
+                    currentObj.count = 1;
+                    productList.push(currentObj);
+                    console.log(productList);
+                    window.localStorage.setItem('product-list', JSON.stringify(productList));
+                }
+
+                var totalCount = 0;
+                for (var i = 0; i < productList.length; i++) {
+                    totalCount = totalCount + productList[i].count;
+                }
+
+                $('#cart-count').html(totalCount);
+
+            })
+
+            var productList = window.localStorage.getItem('product-list');
+            productList = productList === null || productList === '' ? [] : productList;
+            productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+            var totalCount = 0;
+            for (var i = 0; i < productList.length; i++) {
+                totalCount = totalCount + productList[i].count;
+            }
+
+            $('#cart-count').html(totalCount);
+
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>

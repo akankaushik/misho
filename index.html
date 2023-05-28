@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@600&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/588c3131b5.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Recursive', sans-serif;
+
+        }
+
+        .homepage-section {
+            padding: 4% 8% 0;
+        }
+
+        .section-heading {
+            font-size: 28px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            width: 100%;
+            max-width: 19%;
+            margin-left: 0.5%;
+            margin-right: 0.5%;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 5px #ccc;
+            border-radius: 5px;
+        }
+
+        .product-image {
+            width: 100%;
+        }
+
+        .product-meta {
+            box-sizing: border-box;
+            padding: 16px;
+            font-family: 'Lobster', cursive;
+            color: #643843;
+
+
+
+        }
+
+        .product-meta>h4 {
+            font-weight: 600;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .product-meta>h5 {
+            font-weight: 600;
+            opacity: 0.8;
+            margin: 0;
+            margin-top: 12px;
+        }
+
+        .product-meta>p {
+            margin: 0;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #D25380;
+        }
+
+        .product-card:hover {
+            cursor: pointer;
+            box-shadow: 0 0 9px 6px lightpink;
+        }
+
+        #right-menu {
+            display: inline-flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        #cart-wrapper {
+            position: relative;
+            margin-right: 32px;
+        }
+
+        #cart-count {
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: 600;
+            background-color: #D25380;
+            color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -12px;
+            right: -12px;
+        }
+
+        #cart-wrapper>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #cart-wrapper i {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .logo {
+            color: #D25380;
+            font-size: 60px;
+            margin: 20px;
+            font-family: 'Dancing Script', cursive;
+
+
+        }
+
+        #search-box {
+            width: 30%;
+            border: 1px solid rgb(245, 242, 242);
+            background-color: rgb(245, 242, 242);
+            box-sizing: border-box;
+            padding: 10px 24px 8px 48px;
+            color: black;
+            outline: none;
+        }
+
+        footer {
+            margin-top: 25px;
+            width: 100%;
+            background-color: #643843;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 4% 8%;
+        }
+
+        footer>div {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        .footer-heading {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            margin-top: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .slideshow-container {
+            
+            width: 800px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .mySlides {
+            padding-top: 10px;
+            width: 100%;
+            transition: all 0.3s ease;
+            border: 8px solid white;
+
+        }
+
+
+        /* Hide the images by default */
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <a href="" style="text-decoration: none;">
+            <img src="https://png.pngtree.com/png-vector/20210905/ourmid/pngtree-pink-shopping-bag-png-image_3857316.jpg"
+                alt="" width="80px" height="80px">
+            <span class="logo">Misho</span>
+        </a>
+        <input id="search-box" type="text" name="search" placeholder="Search for Clothing and Accessories">
+        <div id="right-menu">
+            <div id="cart-wrapper">
+                <p id="cart-count">0</p>
+                <a href="./checkout.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <img src="https://img.freepik.com/premium-vector/cute-shopping-girl-cartoon_274619-870.jpg" alt=""
+                style="width: 50px; height: 50px; border-radius: 50%;">
+
+        </div>
+
+    </div>
+
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <img class="mySlides"
+            src="https://m.media-amazon.com/images/G/31/img22/Fashion/AF/Newseason/revamp/MFA/PC/V1/MFA-BUY-2-BUY-3._CB591876457_.gif"
+            alt="" />
+
+        <img class="mySlides"
+            src="https://m.media-amazon.com/images/G/31/img22/Fashion/AF/Newseason/revamp/MFA/PC/V1/MFA_HERO-1._CB591876457_.jpg"
+            alt="" />
+
+        <img class="mySlides"
+            src="https://m.media-amazon.com/images/G/31/img21/shoes/2023/SS23/Herotater_pc/men2._SX3000_QL85_FMpng_.png"
+            alt="" />
+
+    </div>
+
+
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+
+
+    <section id="clothing-section" class="homepage-section">
+        <h3 class="section-heading">Clothing for Men and Women</h3>
+
+        <div id="clothing-grid" class="product-grid"></div>
+    </section>
+
+    <section id="accessory-section" class="homepage-section">
+        <h3 class="section-heading">Accessories for Men and Women</h3>
+
+        <div id="accessory-grid" class="product-grid"></div>
+    </section>
+
+    <footer>
+        <div>
+            <p class="footer-heading">Online Store</p>
+            <a href="/" class="footer-link">Men Clothing</a>
+            <a href="/" class="footer-link">Women Clothing</a>
+            <a href="/" class="footer-link">Men Accessories</a>
+            <a href="/" class="footer-link">Women Accessories</a>
+        </div>
+        <div>
+            <p class="footer-heading">Helpful Links</p>
+            <a href="/" class="footer-link">Home</a>
+            <a href="/" class="footer-link">About</a>
+            <a href="/" class="footer-link">Contact</a>
+        </div>
+        <div>
+            <p class="footer-heading">Partners</p>
+            <a href="/" class="footer-link">Zara</a>
+            <a href="/" class="footer-link">Pantaloons</a>
+            <a href="/" class="footer-link">Levis</a>
+            <a href="/" class="footer-link">UCB</a>
+            <a href="/" class="footer-link">+ Many More</a>
+        </div>
+        <div>
+            <p class="footer-heading">Address</p>
+            <p href="/" class="footer-link">Building 101</p>
+            <p href="/" class="footer-link">Central Avenue</p>
+            <p href="/" class="footer-link">LA - 902722</p>
+            <p href="/" class="footer-link">United States</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function createHomePageProductCard(obj) {
+
+            var mainDiv = document.createElement('div');
+            mainDiv.classList.add('product-card');
+
+            var productLink = document.createElement('a');
+            productLink.href = './details.html?p=' + obj.id;
+
+            var productImage = document.createElement('img');
+            productImage.classList.add('product-image');
+            productImage.src = obj.preview;
+            productImage.alt = obj.name + ' Pic';
+
+            productLink.appendChild(productImage);
+
+            var innerDiv = document.createElement('div');
+            innerDiv.classList.add('product-meta');
+
+            var productName = document.createElement('h4');
+            var productNameText = document.createTextNode(obj.name);
+            productName.appendChild(productNameText);
+
+            var productBrand = document.createElement('h5');
+            var productBrandText = document.createTextNode(obj.brand);
+            productBrand.appendChild(productBrandText);
+
+            var productPrice = document.createElement('p');
+            var productPriceText = document.createTextNode('Rs ' + obj.price);
+            productPrice.appendChild(productPriceText);
+
+            innerDiv.appendChild(productName);
+            innerDiv.appendChild(productBrand);
+            innerDiv.appendChild(productPrice);
+
+            mainDiv.appendChild(productLink);
+            mainDiv.appendChild(innerDiv);
+
+            return mainDiv;
+        }
+
+        $.get('https://5d76bf96515d1a0014085cf9.mockapi.io/product', function (data, status) {
+            var response = data;
+
+            for (var i = 0; i < response.length; i++) {
+                console.log(response[i])
+                if (response[i].isAccessory) {
+                    $('#accessory-grid').append(createHomePageProductCard(response[i]))
+                } else {
+                    $('#clothing-grid').append(createHomePageProductCard(response[i]))
+                }
+            }
+        })
+
+        var productList = window.localStorage.getItem('product-list');
+        console.log(productList);
+        productList = productList === null || productList === '' ? [] : productList;
+        productList = productList.length > 0 ? JSON.parse(productList) : [];
+
+        var totalCount = 0;
+        for (var i = 0; i < productList.length; i++) {
+            totalCount = totalCount + productList[i].count;
+        }
+
+        $('#cart-count').html(totalCount);
+
+
+        var slideIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) { slideIndex = 1 }
+            x[slideIndex - 1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
